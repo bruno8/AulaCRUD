@@ -1,4 +1,4 @@
-﻿# AulaCRUD
-Repositório de exemplo de uso do git como um projeto maven
+# AulaCRUD
+Repositório de exmplo de uso do git com um projeto maven
 
-Testando repositório
+Testando repositorio
