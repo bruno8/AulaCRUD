@@ -1,0 +1,17 @@
+1- Criou uma conta no github;
+
+2- Instalou a ferramenta fit para manipular repositorio;
+
+3- Criou um repositorio chamado AulaCRUD;
+
+4- Clonamos o repositorio : git clone <endereco de rep>;
+
+5- Alteramos o Arquivo readme na maquina local;
+
+6- Adicionamos o arquivo readme a area de stagging do git com comando git add <arquivo>;
+
+7- Comitamos o Arquivo no repositorio local: git commit -m "coment";
+
+8- enviamos os commits para o servidor com o comando: git push;
+
+9- O comando git status mostra como esta o seu repositorio local em relaçao ao repositorio remoto;
