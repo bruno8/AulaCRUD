@@ -24,7 +24,7 @@
                 </div>
                 <div class="form-group">
                     <button class="btn btn-primary" type="submit" id="btnAtualizar">Atualizar</button>
-                    <button class="btn btn-primary" type="submit" id="btnNovo">Novo</button>
+                    <button onclick="parent.location.href='ManterAlunoServlet?acao=novo'" class="btn btn-primary" type="button" id="btnNovo">Novo</button>
                 </div>
             </form>
             <div id="alunos-div">
@@ -36,7 +36,10 @@
                     </tr>
                     <c:forEach var="aluno" items="${alunos}">
                         <tr>
-                            <td class="col-xs-2"></td>
+                            <td class="col-xs-2">
+                                <a href="ManterAlunoServlet?acao=editar&id=${aluno.id}"><img src="imagens/editar.jpeg" /></a>
+                                <a href="ManterAlunoServlet?acao=excluir&id=${aluno.id}"><img src="imagens/excluir.jpeg" /></a>
+                            </td>
                             <td class="col-xs-4">${aluno.nome}</td>
                             <td class="col-xs-6">${aluno.idade}</td>
                         </tr>
@@ -44,7 +47,5 @@
                 </table>
             </div>
         </div>
-        <script type='text/javascript' src='<%= org.webjars.AssetLocator.getWebJarPath("jquery.min.js")%>'></script>
-        <script type='text/javascript' src='<%= org.webjars.AssetLocator.getWebJarPath("js/bootstrap.min.js")%>'></script>
     </body>
 </html>
