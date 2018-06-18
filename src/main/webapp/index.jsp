@@ -1,37 +1,48 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <title>Lista de Alunos</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <llink rel='stylesheet' href='<%= org.webjars.AssetLocator.getWebJarPath("ccs/bootstrap.min.css")%>'>
-        <llink rel='stylesheet' href='<%= org.webjars.AssetLocator.getWebJarPath("ccs/bootstrap-theme.min.css")%>'>
-        <style type=text/css">
-        #alunos-div{
-            height: 250px;
-            overflow-y: auto;
-        }
+        <link rel='stylesheet' href='<%= org.webjars.AssetLocator.getWebJarPath("css/bootstrap.min.css")%>'>
+        <link rel='stylesheet' href='<%= org.webjars.AssetLocator.getWebJarPath("css/bootstrap-theme.min.css")%>'>
+        <style type="text/css">
+            #alunos-div{
+                height: 250px;
+                overflow-y: auto;
+            }
         </style>
     </head>
     <body>
-        <div>
-        <h1>Lista de Alunos</h1>
-        <form> 
-            <div class="form-group">
-                <label class=control-label" for="nomeId">Nome: </label>
-                <input class="form-control" id="nomeId" type="text"/>
+        <div class="container">
+            <h1>Lista de Alunos</h1>
+            <form action="ListaAlunoServlet" method="POST">
+                <div class="form-group">
+                    <label class="control-label" for="nome">Nome: </label>
+                    <input value="${nomePesquisado}" class="form-control" name="nome" id="nome" type="text" />
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary" type="submit" id="btnAtualizar">Atualizar</button>
+                    <button class="btn btn-primary" type="submit" id="btnNovo">Novo</button>
+                </div>
+            </form>
+            <div id="alunos-div">
+                <table class="table-striped" id="aluno-table">
+                    <tr>
+                        <th class="col-xs-2"></th>
+                        <th class="col-xs-4">Nome</th>
+                        <th class="col-xs-6">Idade</th>
+                    </tr>
+                    <c:forEach var="aluno" items="${alunos}">
+                        <tr>
+                            <td class="col-xs-2"></td>
+                            <td class="col-xs-4">${aluno.nome}</td>
+                            <td class="col-xs-6">${aluno.idade}</td>
+                        </tr>
+                    </c:forEach>
+                </table>
             </div>
-            <div class="form-group">
-                <button class="btn btn-primary" type="submit" id="btnAtualiar"</button>
-            </div>
-        </form>
-        <div id="alunos.div">
-            <table class="table-striped" id="aluno-table">
-                <tr> 
-                    <th class="col-xs-2"></th>
-                    <th class="col-xs-4">Nome</th>
-                </tr>
-            </table>
-        </div>
         </div>
         <script type='text/javascript' src='<%= org.webjars.AssetLocator.getWebJarPath("jquery.min.js")%>'></script>
         <script type='text/javascript' src='<%= org.webjars.AssetLocator.getWebJarPath("js/bootstrap.min.js")%>'></script>
